@@ -11,10 +11,7 @@ Below is a GIF of the application demonstrating its functionality by creating an
 <h3>Technology </h3>
 
 This application was created using the MERN stack short for:
-<b>MongoDB
-Express
-React
-and Node</b>
+<b>MongoDB, Express, React, and Node</b>
 
 
 <h3>Features</h3>
@@ -23,7 +20,9 @@ This Bad Bank aplication currently has the ability to:
 <ul>
 Create an account.
 </ul>
+<ul>
 Login to accounts.
+</ul>
 <ul>
 Deposit "funds" into accounts.
 </ul>
@@ -37,10 +36,13 @@ Check the fund balance of accounts.
 Check all the accounts data on one page.
 </ul>
 
-Future features I would like to  include are:
+<h3>Future features I would like to  include are:</h3>
 <ul>
 Authentication
 </ul>
 <ul>
 Transaction page
 </ul>
+<h3>License</h3>
+<br>
+"license" "MIT"
