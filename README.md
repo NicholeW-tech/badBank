@@ -7,3 +7,40 @@ This project can be ran by cloning or downloading source code from Github. Runni
 Below is a GIF of the application demonstrating its functionality by creating an account, depositing funds, checking the balance, and finally checking all the user data that is stored.
 
 ![](public/badBank.gif)
+
+<h3>Technology </h3>
+
+This application was created using the MERN stack short for:
+<b>MongoDB
+Express
+React
+and Node</b>
+
+
+<h3>Features</h3>
+
+This Bad Bank aplication currently has the ability to:
+<ul>
+Create an account.
+</ul>
+Login to accounts.
+<ul>
+Deposit "funds" into accounts.
+</ul>
+<ul>
+Withdraw "funds" from accounts.
+</ul>
+<ul>
+Check the fund balance of accounts.
+</ul>
+<ul>
+Check all the accounts data on one page.
+</ul>
+
+Future features I would like to  include are:
+<ul>
+Authentication
+</ul>
+<ul>
+Transaction page
+</ul>
