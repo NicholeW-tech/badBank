@@ -16,7 +16,7 @@ function Balance(){
 }
 
 function BalanceMsg(props){
-  return(<>
+  return(<div>
     <h5>Success</h5>
     <button type="submit" 
       className="btn btn-light" 
@@ -26,7 +26,7 @@ function BalanceMsg(props){
       }}>
         Check balance again
     </button>
-  </>);
+  </div>);
 }
 
 function BalanceForm(props){
@@ -50,7 +50,7 @@ function BalanceForm(props){
     });
   }
 
-  return (<>
+  return (<div>
 
     Email<br/>
     <input type="input" 
@@ -65,5 +65,5 @@ function BalanceForm(props){
         Check Balance
     </button>
 
-  </>);
+  </div>);
 }

@@ -15,7 +15,7 @@ function Deposit(){
 }
 
 function DepositMsg(props){
-  return (<>
+  return (<div>
     <h5>Success</h5>
     <button type="submit" 
       className="btn btn-light" 
@@ -25,7 +25,7 @@ function DepositMsg(props){
       }}>
         Deposit again
     </button>
-  </>);
+  </div>);
 } 
 
 function DepositForm(props){
@@ -48,7 +48,7 @@ function DepositForm(props){
     });
   }
 
-  return(<>
+  return(<div>
 
     Email<br/>
     <input type="input" 
@@ -66,5 +66,5 @@ function DepositForm(props){
       className="btn btn-light" 
       onClick={handle}>Deposit</button>
 
-  </>);
+  </div>);
 }

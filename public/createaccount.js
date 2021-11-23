@@ -15,12 +15,12 @@ function CreateAccount(){
 }
 
 function CreateMsg(props){
-  return(<>
+  return(<div>
     <h5>Success</h5>
     <button type="submit" 
       className="btn btn-light" 
       onClick={() => props.setShow(true)}>Add another account</button>
-  </>);
+  </div>);
 }
 
 function CreateForm(props){
@@ -39,7 +39,7 @@ function CreateForm(props){
     props.setShow(false);
   }    
 
-  return (<>
+  return (<div>
 
     Name<br/>
     <input type="input" 
@@ -66,5 +66,5 @@ function CreateForm(props){
       className="btn btn-light" 
       onClick={handle}>Create Account</button>
 
-  </>);
+  </div>);
 }

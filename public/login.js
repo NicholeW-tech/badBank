@@ -15,14 +15,14 @@ function Login(){
 }
 
 function LoginMsg(props){
-  return(<>
+  return(<div>
     <h5>Success</h5>
     <button type="submit" 
       className="btn btn-light" 
       onClick={() => props.setShow(true)}>
         Authenticate again
     </button>
-  </>);
+  </div>);
 }
 
 function LoginForm(props){
@@ -46,7 +46,7 @@ function LoginForm(props){
   }
 
 
-  return (<>
+  return (<div>
 
     Email<br/>
     <input type="input" 
@@ -64,5 +64,5 @@ function LoginForm(props){
 
     <button type="submit" className="btn btn-light" onClick={handle}>Login</button>
    
-  </>);
+  </div>);
 }

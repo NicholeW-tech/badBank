@@ -15,7 +15,7 @@ function Withdraw(){
 }
 
 function WithdrawMsg(props){
-  return(<>
+  return(<div>
     <h5>Success</h5>
     <button type="submit" 
       className="btn btn-light" 
@@ -25,7 +25,7 @@ function WithdrawMsg(props){
       }}>
         Withdraw again
     </button>
-  </>);
+  </div>);
 }
 
 function WithdrawForm(props){
@@ -49,7 +49,7 @@ function WithdrawForm(props){
   }
 
 
-  return(<>
+  return(<div>
 
     Email<br/>
     <input type="input" 
@@ -71,5 +71,5 @@ function WithdrawForm(props){
         Withdraw
     </button>
 
-  </>);
+  </div>);
 }
