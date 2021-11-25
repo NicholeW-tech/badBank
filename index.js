@@ -1,47 +1,12 @@
-const express = require('express');
-const app     = express();
-const cors    = require('cors');
-const dal     = require('./dal.js');
-require('dotenv').config();
-const { auth } = require('express-openid-connect');
+var express = require('express');
+var app     = express();
+var cors    = require('cors');
+var dal     = require('./dal.js');
 
 
+// used to serve static files from public directory
 app.use(express.static('public'));
 app.use(cors());
-app.use(auth(config));
-
-
-// app.all('/', function(req, res, next) {
-//     res.header("Access-Control-Allow-Origin", "*");
-//     res.header("Access-Control-Allow-Headers", "X-Requested-With");
-//     next()
-//   });
-
-
-
-
-const config = {
-  authRequired: false,
-  auth0Logout: true,
-  secret: 'aakjsdfoiajsdOosjdgopSDFjeshf',
-  baseURL: 'http://localhost:5000',
-  clientID: 'e4bxp0bEOtRbldwZwkaqyNR4T7ld7W3b',
-  issuerBaseURL: 'https://frosty-recipe-0753.us.auth0.com'
-};
-
-// auth router attaches /login, /logout, and /callback routes to the baseURL
-
-
-// req.isAuthenticated is provided from the auth router
-app.get('/', (req, res) => {
-  res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
-});
-
-
-
-
-
-
 
 // create user account
 app.get('/account/create/:name/:email/:password', function (req, res) {
