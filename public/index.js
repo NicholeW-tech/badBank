@@ -14,6 +14,7 @@ function Spa() {
             <Route path="/balance" component={Balance} />
             <Route path="/alldata" component={AllData} />
           </div>
+          
         </UserContext.Provider>
       </div>
     </HashRouter>
@@ -21,6 +22,8 @@ function Spa() {
 }
 
 ReactDOM.render(
-  <Spa/>,
+
+    <Spa />,
+
   document.getElementById('root')
 );

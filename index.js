@@ -2,12 +2,73 @@ var express = require('express');
 var app     = express();
 var cors    = require('cors');
 var dal     = require('./dal.js');
+var passport = require('passport');
+var GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 
 
 // used to serve static files from public directory
 app.use(express.static('public'));
 app.use(cors());
+app.use(require('cookie-parser')());
+app.use(require('body-parser').urlencoded({ extended: true }));
+app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
 
+passport.serializeUser(function(user, done) {
+    done(null, user);
+   });
+
+   passport.deserializeUser(function(user, done) {
+    done(null, user);
+   });
+
+   passport.use(
+    new GoogleStrategy(
+     {
+      clientID: "991978049821-24va06ib0j4cr4bmbc4lnnej79l9o845.apps.googleusercontent.com",
+      clientSecret: "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",
+      callbackURL: "http://localhost:5000/auth/google/callback"
+     },
+     function(accessToken, refreshToken, profile, done) {
+      var userData = {
+       email: profile.emails[0].value,
+       name: profile.displayName,
+       token: accessToken
+      };
+      done(null, userData);
+     }
+    )
+   );
+
+
+app.post('/login', 
+  passport.authenticate('local', { failureRedirect: '/login' }),
+  function(req, res) {
+    res.redirect('/');
+  });
+
+
+  
+
+app.get("/", function(req, res, next) {
+	res.render("index", { title: "Express" });
+});
+
+/* GET Google Authentication API. */
+app.get(
+	"/auth/google",
+	passport.authenticate("google", { scope: ["profile", "email"] })
+);
+
+app.get(
+	"/auth/google/callback",
+	passport.authenticate("google", { failureRedirect: "/", session: false }),
+	function(req, res) {
+		var token = req.user.token;
+		res.redirect("http://localhost:5000?token=" + token);
+	}
+);
 // create user account
 app.get('/account/create/:name/:email/:password', function (req, res) {
 
