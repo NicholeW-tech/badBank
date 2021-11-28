@@ -28,7 +28,7 @@ passport.serializeUser(function(user, done) {
      {
       clientID: "991978049821-viuktd5jvhc3qojkr0psjbatauk467ld.apps.googleusercontent.com",
       clientSecret: "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",
-      callbackURL: "http://localhost:5000/auth/google/callback"
+      callbackURL: "https://badbanktest1.herokuapp.com/auth/google/callback"
      },
      function(accessToken, refreshToken, profile, done) {
       var userData = {
@@ -66,7 +66,7 @@ app.get(
 	passport.authenticate("google", { failureRedirect: "/", session: false }),
 	function(req, res) {
 		var token = req.user.token;
-		res.redirect("http://localhost:5000?token=" + token);
+		res.redirect("https://badbanktest1.herokuapp.com?token=" + token);
 	}
 );
 // create user account
