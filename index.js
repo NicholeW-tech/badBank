@@ -1,10 +1,9 @@
-var express        = require('express');
-var app            = express();
-var cors           = require('cors');
-var dal            = require('./dal.js');
-var passport       = require('passport');
+var express = require('express');
+var app     = express();
+var cors    = require('cors');
+var dal     = require('./dal.js');
+var passport = require('passport');
 var GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
-var Card           = require("react-bootstrap/Card");
 
 
 // used to serve static files from public directory
@@ -27,9 +26,9 @@ passport.serializeUser(function(user, done) {
    passport.use(
     new GoogleStrategy(
      {
-      clientID: "991978049821-viuktd5jvhc3qojkr0psjbatauk467ld.apps.googleusercontent.com",
-      clientSecret: "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",
-      callbackURL: "https://badbanktest1.herokuapp.com/auth/google/callback"
+      clientID: "991978049821-24va06ib0j4cr4bmbc4lnnej79l9o845.apps.googleusercontent.com",
+      clientSecret: "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",
+      callbackURL: "http://localhost:5000/auth/google/callback"
      },
      function(accessToken, refreshToken, profile, done) {
       var userData = {
@@ -67,7 +66,7 @@ app.get(
 	passport.authenticate("google", { failureRedirect: "/", session: false }),
 	function(req, res) {
 		var token = req.user.token;
-		res.redirect("https://badbanktest1.herokuapp.com?token=" + token);
+		res.redirect("http://localhost:5000?token=" + token);
 	}
 );
 // create user account
