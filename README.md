@@ -38,11 +38,9 @@ Check all the accounts data on one page.
 
 <h3>Future features I would like to  include are:</h3>
 <ul>
-Authentication
-</ul>
-<ul>
 Transaction page
 </ul>
+<h3>Try a live veresion on <a href="https://badbanktest1.herokuapp.com/#/">Heroku</a>.</h3>
 <h3>License</h3>
 <br>
 "license" "MIT"
