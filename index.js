@@ -4,8 +4,10 @@ var cors    = require('cors');
 var dal     = require('./dal.js');
 var passport = require('passport');
 var GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
+require('dotenv').config();
 
-
+const GOOGLE_ID_CLIENT = process.env.CLIENTID
+const GOOGLE_KEY = process.env.CLIENTSECRET
 // used to serve static files from public directory
 app.use(express.static('public'));
 app.use(cors());
@@ -26,7 +28,8 @@ passport.serializeUser(function(user, done) {
    passport.use(
     new GoogleStrategy(
      {
-    
+      clientID: GOOGLE_ID_CLIENT,
+      clientSecret: GOOGLE_KEY,
       callbackURL: "https://badbanktest1.herokuapp.com/auth/google/callback"
      },
      function(accessToken, refreshToken, profile, done) {
