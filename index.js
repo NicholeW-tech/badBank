@@ -4,7 +4,10 @@ var cors    = require('cors');
 var dal     = require('./dal.js');
 var passport = require('passport');
 var GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
+require('dotenv').config();
 
+const GOOGLE_ID = process.env.CLIENTID
+const GOOGLE_SECRET =process.env.CLIENTSECRET
 
 // used to serve static files from public directory
 app.use(express.static('public'));
@@ -14,6 +17,8 @@ app.use(require('body-parser').urlencoded({ extended: true }));
 app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
+
+
 
 passport.serializeUser(function(user, done) {
     done(null, user);
@@ -26,8 +31,8 @@ passport.serializeUser(function(user, done) {
    passport.use(
     new GoogleStrategy(
      {
-      clientID: "991978049821-viuktd5jvhc3qojkr0psjbatauk467ld.apps.googleusercontent.com",
-      clientSecret: "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",
+      clientID: GOOGLE_ID,
+      clientSecret: GOOGLE_SECRET,
       callbackURL: "https://badbanktest1.herokuapp.com/auth/google/callback"
      },
      function(accessToken, refreshToken, profile, done) {
