@@ -26,8 +26,8 @@ passport.serializeUser(function(user, done) {
    passport.use(
     new GoogleStrategy(
      {
-      clientID: CLIENTID,
-      clientSecret: CLIENTSECRET,
+      clientID: env.CLIENTID,
+      clientSecret: env.CLIENTSECRET,
       callbackURL: "https://badbanktest1.herokuapp.com/auth/google/callback"
      },
      function(accessToken, refreshToken, profile, done) {
